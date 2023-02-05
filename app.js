@@ -7,6 +7,15 @@ require("dotenv").config();
 const port = process.env.PORT;
 const joinPath = path.join(__dirname, "index.html");
 const { Server } = require("socket.io");
+const bodyParser = require("body-parser");
+const connectionToDb = require("./src/dbConnection/connectToDb");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+
+connectionToDb();
+
+
 
 const io = new Server(server);
 
@@ -19,7 +28,7 @@ io.on("connection", (socket) => {
 
     socket.on("chat message", (message) => {
         console.log("message " + message);
-        io.emit("chat message", message);
+        socket.broadcast.emit("chat message", message);
     })
 
     socket.on("disconnect", () => {
