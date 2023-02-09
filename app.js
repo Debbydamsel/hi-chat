@@ -1,5 +1,7 @@
 const express = require("express");
 const expressLayOuts = require("express-ejs-layouts");
+const flash = require("connect-flash");
+const session = require("express-session");
 const passport = require("passport");
 const app = express();
 const path = require("path");
@@ -13,7 +15,8 @@ const bodyParser = require("body-parser");
 const connectionToDb = require("./src/dbConnection/connectToDb");
 const authRouter = require("./src/routes/authRoute");
 const chatRouter = require("./src/routes/chatRoute");
-//require("./src/controllers/authController");
+require("./src/controllers/authController");
+
 
 
 //EJS
@@ -26,6 +29,28 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(express.static("public"));
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+  }))
+
+
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//connect flash
+app.use(flash());
+
+//global varaibles coming from flash
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash("success_msg");
+    res.locals.error_msg = req.flash("error_msg");
+    res.locals.error = req.flash("error");
+    next();
+})
 
 //connection to db
 connectionToDb();

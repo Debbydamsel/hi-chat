@@ -5,17 +5,17 @@ const userSchema = mongoose.Schema;
 const userModel = new userSchema({
     username: {
         type: String,
-        required: [true, "Please provide a userName"],
-        unique: [true, "This username already exists!"]
+        required: true,
+        unique: true
     },
     email: {
         type: String,
-        unique: [true, "This email already exists!"],
+        unique: true,
         required: true
     },
     password: {
         type: String,
-        required: [true, "Please provide a password"]
+        required: true
     }
     
 }, {timestamps: true});

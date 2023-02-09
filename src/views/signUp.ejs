@@ -18,17 +18,17 @@
         <h5>Enter the fields below to get started</h5>
 
         <%- include("./partials/messages") %>
-        <form action="/signUp" method="post">
+        <form action="/signUp" method="POST">
             
-            <input class="msg" value="<%= typeof username !== "undefined" ? name : "" %>" type="username" placeholder="Username" name="username" required>
+            <input class="msg" value="<%= typeof username !== "undefined" ? username : "" %>" type="username" placeholder="Username" name="username" required>
             
             <hr>
 
-            <input class="msg" value="<%= typeof email !== "undefined" ? name : "" %>" type="email" placeholder="Email" name="email" required>
+            <input class="msg" value="<%= typeof email !== "undefined" ? email : "" %>" type="email" placeholder="Email" name="email" required>
 
             <hr>
 
-            <input class="msg" value="<%= typeof password !== "undefined" ? name : "" %>" type="password" placeholder="Password" name="password" required>
+            <input class="msg" value="<%= typeof password !== "undefined" ? password : "" %>" type="password" placeholder="Password" name="password" required>
             
             <hr>
             <br>
