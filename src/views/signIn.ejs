@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form">
+
+        <h1>Welcome back!</h1>
+        <h5>Enter your details below</h5>
+        <form action="/signIn" method="post">
+
+            <input class="msg" type="email" placeholder="Email" name="email">
+            
+            <hr>
+
+            <input class="msg" type="password" placeholder="Password" name="password">
+            
+            <hr>
+            <br>
+            <button class="button" type="submit" value="submit">Login</button autocomplete="off">
+        </form>
+        
+        <p>Don't have an account? <span><a href="/signUp">Create account</a></span></p>
+        
+         
+        
+        
+
+    </div>
+    
+</body>
+</html>

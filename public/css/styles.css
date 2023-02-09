@@ -1,0 +1,67 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #180E19 0%, #E9AD6E 100%) no-repeat;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.89);
+}
+.form{
+    margin: 40px auto auto auto;
+    width: 40%;
+    padding: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px 0px;
+    display: inline-block;
+}
+h1 {
+    margin-top: 0;
+}
+input {
+    background: rgba(255, 255, 255, 0.1);
+    width: 60%;
+    padding: 2px;
+}
+hr {
+    width: 60%;
+    margin: 12px;
+    display: inline-block;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+.button {
+    background: #1F141C;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.89);
+    padding: 10px;
+    width: 30%;
+    transition: all 0.3s ease-in-out;
+}
+.button:hover{
+    background-color: rgba(255, 255, 255, 0.89);
+    color: #1F141C;
+    transform: scale(1.1);
+}
+.msg{
+    color: rgba(255, 255, 255, 0.89);
+    padding: 3px; 
+    width: 60%; 
+    height: 20px;
+    display: inline-block;
+    text-align: left;
+    border: 0;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+.msg::placeholder{
+    color: rgba(255, 255, 255, 0.89);
+}
+
+a {
+    color: #1F141C;
+    text-decoration: none;
+}
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+     
+    <div class="form">
+
+        <h1>Create an account</h1>
+        <h5>Enter the fields below to get started</h5>
+
+        <%- include("./partials/messages") %>
+        <form action="/signUp" method="post">
+            
+            <input class="msg" value="<%= typeof username !== "undefined" ? name : "" %>" type="username" placeholder="Username" name="username" required>
+            
+            <hr>
+
+            <input class="msg" value="<%= typeof email !== "undefined" ? name : "" %>" type="email" placeholder="Email" name="email" required>
+
+            <hr>
+
+            <input class="msg" value="<%= typeof password !== "undefined" ? name : "" %>" type="password" placeholder="Password" name="password" required>
+            
+            <hr>
+            <br>
+            <button class="button" value="submit" type="submit">Create Account</button>
+        </form>
+        
+        <p>Already have an account? <span><a href="/signIn">Login</a></span></p>
+
+    </div>
+    
+</body>
+</html>

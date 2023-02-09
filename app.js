@@ -1,27 +1,38 @@
 const express = require("express");
+const expressLayOuts = require("express-ejs-layouts");
+const passport = require("passport");
 const app = express();
-const http = require("http");
 const path = require("path");
+const http = require("http");
 const server = http.createServer(app);
 require("dotenv").config();
 const port = process.env.PORT;
-const joinPath = path.join(__dirname, "index.html");
 const { Server } = require("socket.io");
+const io = new Server(server);
 const bodyParser = require("body-parser");
 const connectionToDb = require("./src/dbConnection/connectToDb");
+const authRouter = require("./src/routes/authRoute");
+const chatRouter = require("./src/routes/chatRoute");
+//require("./src/controllers/authController");
+
+
+//EJS
+app.use(expressLayOuts);
+app.set('views', path.join(__dirname, "src/views"));
+app.set('view engine', 'ejs');
+
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: true}));
 
+app.use(express.static("public"));
+
+//connection to db
 connectionToDb();
 
+app.use("/", authRouter);
+app.use("/chats", chatRouter);
 
-
-const io = new Server(server);
-
-app.get("/", (req, res) => {
-    res.sendFile(joinPath);
-})
 
 io.on("connection", (socket) => {
     console.log("User connected!");
