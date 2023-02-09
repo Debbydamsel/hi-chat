@@ -7,7 +7,7 @@ const userModel = require("../models/usersModels");
 const bcrypt = require("bcryptjs");
 
 //importing the controller that has passport sign in 
-require("../controllers/authController");
+require("../controllers/passportController");
 
 authRouter.get("/", (req, res) => {
     res.render("welcome");

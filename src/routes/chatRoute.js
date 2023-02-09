@@ -1,5 +1,6 @@
 const express = require("express");
 const chatRouter = express.Router();
+const auth = require("../controllers/authController");
 
 chatRouter.get("/", (req, res) => {
     res.render("chats");

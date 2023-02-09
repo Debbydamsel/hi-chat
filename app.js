@@ -15,7 +15,8 @@ const bodyParser = require("body-parser");
 const connectionToDb = require("./src/dbConnection/connectToDb");
 const authRouter = require("./src/routes/authRoute");
 const chatRouter = require("./src/routes/chatRoute");
-require("./src/controllers/authController");
+require("./src/controllers/passportController");
+const auth = require("./src/controllers/authController");
 
 
 
@@ -56,7 +57,7 @@ app.use((req, res, next) => {
 connectionToDb();
 
 app.use("/", authRouter);
-app.use("/chats", chatRouter);
+app.use("/chats", auth.ensureAuthenticated, chatRouter);
 
 
 io.on("connection", (socket) => {
